@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
   int dss,dsc ;
 
 //déclaration d'un buffer
-  char* reqt = calloc(2014, sizeof(char)) ;
+  char* reqt = calloc(1024, sizeof(char)) ;
 
 //déclaration de structures IP de communication serv et client
   struct sockaddr_in aSrv, aClt;
