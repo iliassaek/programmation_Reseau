@@ -2,8 +2,8 @@
 *Initialisation d'une
 *address d'après polycope
 *
-*ça donne un warning lors de la compilation
-*implicit declaration of inet_aton
+*n'oublie pas arpa/inet pour éviter
+*le warning de inet_ntoa
 */
 
 #include <sys/socket.h>
@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <arpa/inet.h>
 
 int main(int argc, char const *argv[]) {
 
