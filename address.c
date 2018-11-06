@@ -1,6 +1,9 @@
 /*
 *Initialisation d'une
 *address d'après polycope
+*
+*ça donne un warning lors de la compilation
+*implicit declaration of inet_aton
 */
 
 #include <sys/socket.h>
@@ -15,9 +18,13 @@ int main(int argc, char const *argv[]) {
   //definition d'une addresse serveur
   struct sockaddr_in monAdress ;
 
-  //definition
+  //definition de la famille qui est la même de la socket
   monAdress.sin_family = AF_INET ;
+
+  //convertir le port vers le format Network By Order
   monAdress.sin_port = htons(99) ;
+
+  //Transformer l'adresse locale au format struct in_addr
   inet_aton("127.0.0.1", &(monAdress.sin_addr));
 
   //clearing sin_address
