@@ -31,12 +31,19 @@ d. done : le serveur ferme la connexion si vous tapez ExiT
 ## 7-serveur multiclient
 
 Un petit serveur supportant plusieurs connexions
+
 via des clients telnet
+
 telnet 127.0.0.1 9090
+
 HEURE
+
 DATE
+
 HEUREDATE
+
 EXIT
+
 sinon echo le message
 
 multiServEcho.c
