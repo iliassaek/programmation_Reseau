@@ -71,26 +71,13 @@ struct tm laDateFmt = *localtime(&laDate) ;
     {
       printf("%s\n",reqt);
 
-      if (strncmp("HEURE",reqt,5) == 0) {
-        memset(reps,'\0', 1024) ;
+      if (strncmp("HEUREDATE",reqt,9) == 0) {
+        sprintf(reps,"JOUR : %d \t mois : %d \t l'année : %d \n",laDateFmt.tm_mday,laDateFmt.tm_mon +1, laDateFmt.tm_year +1900) ;
+      }else if (strncmp("HEURE",reqt,5) == 0) {
         sprintf(reps,"%d",laDateFmt.tm_hour);
       }else if (strncmp("DATE",reqt,4) == 0) {
-        memset(reps,'\0', 1024) ;
         strcpy(reps,asctime(&laDateFmt));
-      }else if (strncmp("AUTRE",reqt,5)) {
-        memset(reps,'\0', 1024) ;
-
-        char* hour = calloc(1024, sizeof(char)) ;
-        sprintf(hour,"%d",laDateFmt.tm_hour);
-
-        char* date = calloc(1024, sizeof(char)) ;
-
-        strcpy(date,asctime(&laDateFmt));
-        strcat(date,hour) ;
-
-
-        strcpy(reps,date);
-      }else if (strncmp("EXIT",reqt,4)) {
+      }else if (strncmp("EXIT",reqt,4) == 0) {
         close(dsc) ;
       }
 

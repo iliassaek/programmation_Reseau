@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]) {
 
 //creation de la socket serveur
   ds = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP) ;
-  printf("ds : %d", ds) ;
+  printf("ds : %d \n", ds) ;
 
 
 //On va lier la socket au réseau ou bien on ouvre la fenêtre
@@ -41,7 +41,7 @@ int main(int argc, char const *argv[]) {
   }
 
 // Clearing reqt
-  memset(reqt, '\0', 1024) ;
+  memset(reqt, '\0', 2014) ;
 
 // like scanf + affected to reqt
   fgets(reqt,sizeof(reqt),stdin) ;
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[]) {
   }
 
 //clearing reqt
-  memset(reqt,'\0',1024) ;
+  memset(reqt,'\0',2014) ;
 
 //closing client
   close(ds) ;
