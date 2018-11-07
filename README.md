@@ -20,11 +20,23 @@ clientDate.c
 
 serveurDate.c
 
-a. done : le serveur ne transmet que l'heure si vous tapez HEURE au client 
+a. done : le serveur ne transmet que l'heure si vous tapez HEURE au client
 
 b. done : le serveur ne transmet que la date si vous tapez DATE au client
 
-c. problème : si vous remplacez AUTRE par HEUREDATE on transmet l' HEURE
+c. done : le serveur transmet l'heure et la date si vous tapez HEUREDATE en telnet
 
-d. problème : si on tape EXIT on transmet quand même l'heure et la date ><
+d. done : le serveur ferme la connexion si vous tapez ExiT
 
+## 7-serveur multiclient
+
+Un petit serveur supportant plusieurs connexions
+via des clients telnet
+telnet 127.0.0.1 9090
+HEURE
+DATE
+HEUREDATE
+EXIT
+sinon echo le message
+
+multiServEcho.c
