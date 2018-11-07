@@ -7,12 +7,18 @@ address.c
 host.c
 
 ## 3-serveur echo
+serveurecho.c
 
 ## 4-client echo
+clientecho.c
 
 ## 5-scanneur de port
+scan.c
 
 ## 6-atelier 6
+clientDate.c
+
+serveurDate.c
 
 a. done : le serveur ne transmet que l'heure si vous tapez HEURE au client 
 
