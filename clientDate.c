@@ -44,7 +44,7 @@ int main(int argc, char const *argv[]) {
   memset(reqt, '\0', 2014) ;
 
 // like scanf + affected to reqt
-  fgets(reqt,sizeof(reqt),stdin) ;
+  fgets(reqt,10000,stdin) ;
 
 // send the reqt to server
   send(ds, reqt,strlen(reqt),0) ;
