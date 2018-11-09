@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
 
 //defintion classique de l'adresse serveur family/port/addr/zero
   aSrv.sin_family = AF_INET ;
-  aSrv.sin_port = htons(9097) ;
+  aSrv.sin_port = htons(80) ;
   inet_aton("127.0.0.1",&(aSrv.sin_addr)) ;
   memset(&aSrv.sin_zero,'0',8) ;
 
@@ -44,14 +44,23 @@ int main(int argc, char const *argv[]) {
   memset(reqt, '\0', 1024) ;
 
 // like scanf + affected to reqt
-  fgets(reqt,sizeof(reqt),stdin) ;
-
+  fgets(reqt,1024,stdin) ;
+	int len = strlen(reqt);
+  reqt[len-1] = '\r';
+reqt[len] = '\n'; 
+reqt[len+1] = '\0'; 
+  
 // send the reqt to server
   send(ds, reqt,strlen(reqt),0) ;
 
 //recieving response from server and showing it
-  while (recv(ds,reps,1024,0)>0)
+  memset(reps, '\0', 1024) ;
+  if (recv(ds,reps,1024,0)>0)
   {
+    for(int i =0;i<strlen(reps);i++)
+    {
+	if(reps[i] == '\n') reps[i] = '\0' ;
+}
     printf("message reçu est : %s\n",reps);
   }
 
